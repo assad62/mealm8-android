@@ -166,15 +166,6 @@ THEMEALDB_API_KEY=your_api_key_here
 - [ ] Social features (sharing, reviews)
 - [ ] Offline support
 
-## 🤝 Contributing
-
-We welcome contributions! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-### Development Guidelines
-1. Follow the existing code style and architecture
-2. Write tests for new features
-3. Update documentation as needed
-4. Ensure all tests pass before submitting
 
 ## 📄 License
 
