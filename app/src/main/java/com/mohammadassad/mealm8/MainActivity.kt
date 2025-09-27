@@ -9,8 +9,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.mohammadassad.mealm8.navigation.MealM8Navigation
-import com.mohammadassad.mealm8.ui.theme.MealM8Theme
+import com.mohammadassad.mealm8.core.navigation.MealM8Navigation
+import com.mohammadassad.mealm8.core.theme.MealM8Theme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
