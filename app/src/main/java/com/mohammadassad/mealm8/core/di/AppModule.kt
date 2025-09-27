@@ -15,6 +15,10 @@ import com.mohammadassad.mealm8.features.explore.data.repository.ExploreReposito
 import com.mohammadassad.mealm8.features.explore.domain.repository.ExploreRepository
 import com.mohammadassad.mealm8.features.explore.domain.usecase.GetAllExploreDataUseCase
 import com.mohammadassad.mealm8.features.explore.presentation.ExploreViewModel
+import com.mohammadassad.mealm8.features.search.data.repository.SearchRepositoryImpl
+import com.mohammadassad.mealm8.features.search.domain.repository.SearchRepository
+import com.mohammadassad.mealm8.features.search.domain.usecase.SearchUseCase
+import com.mohammadassad.mealm8.features.search.presentation.SearchViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -54,6 +58,11 @@ val appModule = module {
     single<ExploreRepository> { ExploreRepositoryImpl(get()) }
     single { GetAllExploreDataUseCase(get()) }
     viewModel { ExploreViewModel(get()) }
+    
+    // Search Feature
+    single<SearchRepository> { SearchRepositoryImpl(get()) }
+    single { SearchUseCase(get()) }
+    viewModel { SearchViewModel(get()) }
     
     // Add other dependencies here as needed
     // Example:
