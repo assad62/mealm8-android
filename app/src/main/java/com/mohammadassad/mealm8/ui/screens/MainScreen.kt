@@ -7,8 +7,10 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemColors
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,6 +19,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 
@@ -53,7 +56,9 @@ fun MainScreen(
 
     Scaffold(
         bottomBar = {
-            NavigationBar {
+            NavigationBar(
+                containerColor = Color.White
+            ) {
                 bottomNavItems.forEachIndexed { index, item ->
                     NavigationBarItem(
                         icon = {
@@ -64,6 +69,15 @@ fun MainScreen(
                         },
                         label = { Text(item.title) },
                         selected = selectedTabIndex == index,
+                        colors = NavigationBarItemColors(
+                            selectedIconColor = MaterialTheme.colorScheme.primary,
+                            selectedTextColor = MaterialTheme.colorScheme.primary,
+                            unselectedIconColor = Color.Black,
+                            unselectedTextColor = Color.Black,
+                            selectedIndicatorColor = Color.Transparent,
+                            disabledIconColor = Color.Gray,
+                            disabledTextColor = Color.Gray
+                        ),
                         onClick = {
                             selectedTabIndex = index
                         }
