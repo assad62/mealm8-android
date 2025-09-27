@@ -27,9 +27,9 @@ data class ExploreUiState(
     
     val currentTitle: String
         get() = when (selectedTab) {
-            ExploreType.CATEGORY -> "Categories"
-            ExploreType.AREA -> "Cuisines"
-            ExploreType.INGREDIENT -> "Ingredients"
+            ExploreType.CATEGORY -> "Browse by Category"
+            ExploreType.AREA -> "Explore Cuisines"
+            ExploreType.INGREDIENT -> "Browse Ingredients"
         }
 }
 
