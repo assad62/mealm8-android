@@ -72,7 +72,6 @@ fun SearchScreen(
                 Text(
                     text = when (uiState.selectedType) {
                         SearchType.MEALS -> "Search meals..."
-                        SearchType.CUISINES -> "Search cuisines..."
                         SearchType.INGREDIENTS -> "Search ingredients..."
                     },
                     color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
@@ -170,7 +169,6 @@ private fun SearchTypePill(
         Text(
             text = when (type) {
                 SearchType.MEALS -> "Meals"
-                SearchType.CUISINES -> "Cuisines"
                 SearchType.INGREDIENTS -> "Ingredients"
             },
             style = MaterialTheme.typography.titleMedium,
@@ -384,7 +382,7 @@ private fun WelcomeState() {
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
-                text = "Search for meals, cuisines, or ingredients",
+                text = "Search for meals or ingredients",
                 style = MaterialTheme.typography.headlineSmall,
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center

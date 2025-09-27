@@ -35,24 +35,6 @@ data class SearchResult(
         }
         
         
-        fun fromArea(area: com.mohammadassad.mealm8.core.data.api.AreaItem): SearchResult {
-            return SearchResult(
-                id = area.strArea?.lowercase() ?: "",
-                name = area.strArea ?: "",
-                type = SearchType.CUISINES,
-                imageUrl = null // We'll use emoji icons for areas
-            )
-        }
-        
-        fun fromMealSummaryForCuisine(mealSummary: com.mohammadassad.mealm8.core.data.api.MealSummary, cuisine: String): SearchResult {
-            return SearchResult(
-                id = mealSummary.idMeal ?: "",
-                name = mealSummary.strMeal ?: "",
-                type = SearchType.CUISINES,
-                imageUrl = mealSummary.strMealThumb,
-                area = cuisine
-            )
-        }
         
         fun fromIngredient(ingredient: com.mohammadassad.mealm8.core.data.api.IngredientItem): SearchResult {
             return SearchResult(

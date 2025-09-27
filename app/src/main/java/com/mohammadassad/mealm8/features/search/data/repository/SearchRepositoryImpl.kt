@@ -22,14 +22,6 @@ class SearchRepositoryImpl(
     }
 
 
-    override suspend fun searchCuisines(query: String): Result<List<SearchResult>> {
-        return theMealDbApiService.filterMealsByArea(query)
-            .map { response ->
-                response.meals?.map { mealSummary ->
-                    SearchResult.fromMealSummaryForCuisine(mealSummary, query)
-                } ?: emptyList()
-            }
-    }
 
     override suspend fun searchIngredients(query: String): Result<List<SearchResult>> {
         return theMealDbApiService.getIngredientList()
@@ -45,7 +37,6 @@ class SearchRepositoryImpl(
     override suspend fun search(query: String, type: SearchType): Result<List<SearchResult>> {
         return when (type) {
             SearchType.MEALS -> searchMeals(query)
-            SearchType.CUISINES -> searchCuisines(query)
             SearchType.INGREDIENTS -> searchIngredients(query)
         }
     }
