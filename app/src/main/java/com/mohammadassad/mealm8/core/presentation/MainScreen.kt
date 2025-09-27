@@ -87,7 +87,7 @@ fun MainScreen(
     ) { paddingValues ->
         when (selectedTabIndex) {
             0 -> com.mohammadassad.mealm8.features.home.presentation.HomeScreen()
-            1 -> com.mohammadassad.mealm8.features.categories.presentation.CategoriesScreen()
+            1 -> com.mohammadassad.mealm8.features.browse.presentation.BrowseScreen()
             2 -> com.mohammadassad.mealm8.features.search.presentation.SearchScreen()
             3 -> com.mohammadassad.mealm8.features.favourites.presentation.FavouritesScreen()
             else -> com.mohammadassad.mealm8.features.home.presentation.HomeScreen()
