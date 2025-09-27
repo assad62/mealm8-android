@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -105,6 +107,7 @@ fun ExploreScreen(
             else -> {
                 ExploreContent(
                     items = uiState.currentItems,
+                    selectedTab = uiState.selectedTab,
                     modifier = Modifier.fillMaxSize()
                 )
             }
@@ -167,22 +170,86 @@ private fun TabButton(
 @Composable
 private fun ExploreContent(
     items: List<ExploreItem>,
+    selectedTab: ExploreType,
     modifier: Modifier = Modifier
 ) {
-    LazyVerticalGrid(
-        columns = GridCells.Adaptive(minSize = 160.dp),
-        contentPadding = PaddingValues(
-            start = 0.dp,
-            end = 0.dp,
-            top = 0.dp,
-            bottom = 100.dp // Extra bottom padding for navigation bar
-        ),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
+    when (selectedTab) {
+        ExploreType.AREA -> {
+            // Vertical list for areas with emoji icons
+            LazyColumn(
+                contentPadding = PaddingValues(
+                    start = 0.dp,
+                    end = 0.dp,
+                    top = 0.dp,
+                    bottom = 100.dp // Extra bottom padding for navigation bar
+                ),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = modifier
+            ) {
+                items(items) { item ->
+                    AreaItemCard(item = item)
+                }
+            }
+        }
+        else -> {
+            // Grid layout for categories and ingredients
+            LazyVerticalGrid(
+                columns = GridCells.Adaptive(minSize = 160.dp),
+                contentPadding = PaddingValues(
+                    start = 0.dp,
+                    end = 0.dp,
+                    top = 0.dp,
+                    bottom = 100.dp // Extra bottom padding for navigation bar
+                ),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                modifier = modifier
+            ) {
+                items(items) { item ->
+                    ExploreItemCard(item = item)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun AreaItemCard(
+    item: ExploreItem,
+    modifier: Modifier = Modifier
+) {
+    Card(
         modifier = modifier
+            .fillMaxWidth()
+            .clickable { 
+                // TODO: Navigate to item details
+            },
+        shape = RoundedCornerShape(12.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        items(items) { item ->
-            ExploreItemCard(item = item)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            // Emoji Icon
+            Text(
+                text = ExploreItem.getAreaEmoji(item.name),
+                style = MaterialTheme.typography.headlineLarge,
+                modifier = Modifier
+                    .size(48.dp)
+                    .padding(end = 16.dp)
+            )
+            
+            // Area Name
+            Text(
+                text = item.name,
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Medium,
+                color = MaterialTheme.colorScheme.onSurface,
+                modifier = Modifier.weight(1f)
+            )
         }
     }
 }

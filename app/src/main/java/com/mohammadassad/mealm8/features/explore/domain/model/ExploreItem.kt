@@ -41,9 +41,44 @@ data class ExploreItem(
             )
         }
         
-        private fun getAreaImageUrl(areaName: String): String {
-            // Use country flag or cuisine-specific images
-            return "https://www.themealdb.com/images/ingredients/${areaName.lowercase()}.png"
+        private fun getAreaImageUrl(areaName: String): String? {
+            // Return null for areas since we'll use emoji icons instead
+            return null
+        }
+        
+        fun getAreaEmoji(areaName: String): String {
+            return when (areaName.lowercase()) {
+                "american" -> "🇺🇸"
+                "british" -> "🇬🇧"
+                "canadian" -> "🇨🇦"
+                "chinese" -> "🇨🇳"
+                "croatian" -> "🇭🇷"
+                "dutch" -> "🇳🇱"
+                "egyptian" -> "🇪🇬"
+                "filipino" -> "🇵🇭"
+                "french" -> "🇫🇷"
+                "greek" -> "🇬🇷"
+                "indian" -> "🇮🇳"
+                "irish" -> "🇮🇪"
+                "italian" -> "🇮🇹"
+                "jamaican" -> "🇯🇲"
+                "japanese" -> "🇯🇵"
+                "kenyan" -> "🇰🇪"
+                "malaysian" -> "🇲🇾"
+                "mexican" -> "🇲🇽"
+                "moroccan" -> "🇲🇦"
+                "polish" -> "🇵🇱"
+                "portuguese" -> "🇵🇹"
+                "russian" -> "🇷🇺"
+                "spanish" -> "🇪🇸"
+                "thai" -> "🇹🇭"
+                "tunisian" -> "🇹🇳"
+                "turkish" -> "🇹🇷"
+                "ukrainian" -> "🇺🇦"
+                "uruguayan" -> "🇺🇾"
+                "vietnamese" -> "🇻🇳"
+                else -> "🌍" // Default world emoji for unknown areas
+            }
         }
         
         private fun getIngredientImageUrl(ingredientName: String): String {
