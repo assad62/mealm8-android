@@ -1,49 +1,49 @@
-package com.mohammadassad.mealm8.features.browse.data.repository
+package com.mohammadassad.mealm8.features.explore.data.repository
 
 import com.mohammadassad.mealm8.core.data.api.TheMealDbResponse
 import com.mohammadassad.mealm8.core.data.api.CategoryItem
 import com.mohammadassad.mealm8.core.data.api.AreaItem
 import com.mohammadassad.mealm8.core.data.api.IngredientItem
-import com.mohammadassad.mealm8.features.browse.domain.model.BrowseItem
-import com.mohammadassad.mealm8.features.browse.domain.model.BrowseType
-import com.mohammadassad.mealm8.features.browse.domain.repository.BrowseRepository
+import com.mohammadassad.mealm8.features.explore.domain.model.ExploreItem
+import com.mohammadassad.mealm8.features.explore.domain.model.ExploreType
+import com.mohammadassad.mealm8.features.explore.domain.repository.ExploreRepository
 
 /**
- * Repository implementation for browse functionality
+ * Repository implementation for explore functionality
  * Handles data access for Categories, Areas, and Ingredients
  */
-class BrowseRepositoryImpl(
+class ExploreRepositoryImpl(
     private val theMealDbApiService: com.mohammadassad.mealm8.core.data.api.TheMealDbApiService
-) : BrowseRepository {
+) : ExploreRepository {
     
-    override suspend fun getCategories(): Result<List<BrowseItem>> {
+    override suspend fun getCategories(): Result<List<ExploreItem>> {
         return theMealDbApiService.getCategoryList()
             .map { response ->
                 response.meals?.map { categoryItem ->
-                    BrowseItem.fromCategory(categoryItem)
+                    ExploreItem.fromCategory(categoryItem)
                 } ?: emptyList()
             }
     }
     
-    override suspend fun getAreas(): Result<List<BrowseItem>> {
+    override suspend fun getAreas(): Result<List<ExploreItem>> {
         return theMealDbApiService.getAreaList()
             .map { response ->
                 response.meals?.map { areaItem ->
-                    BrowseItem.fromArea(areaItem)
+                    ExploreItem.fromArea(areaItem)
                 } ?: emptyList()
             }
     }
     
-    override suspend fun getIngredients(): Result<List<BrowseItem>> {
+    override suspend fun getIngredients(): Result<List<ExploreItem>> {
         return theMealDbApiService.getIngredientList()
             .map { response ->
                 response.meals?.map { ingredientItem ->
-                    BrowseItem.fromIngredient(ingredientItem)
+                    ExploreItem.fromIngredient(ingredientItem)
                 } ?: emptyList()
             }
     }
     
-    override suspend fun getAllBrowseData(): Result<Map<BrowseType, List<BrowseItem>>> {
+    override suspend fun getAllExploreData(): Result<Map<ExploreType, List<ExploreItem>>> {
         return try {
             val categoriesResult = getCategories()
             val areasResult = getAreas()
@@ -52,9 +52,9 @@ class BrowseRepositoryImpl(
             if (categoriesResult.isSuccess && areasResult.isSuccess && ingredientsResult.isSuccess) {
                 Result.success(
                     mapOf(
-                        BrowseType.CATEGORY to categoriesResult.getOrThrow(),
-                        BrowseType.AREA to areasResult.getOrThrow(),
-                        BrowseType.INGREDIENT to ingredientsResult.getOrThrow()
+                        ExploreType.CATEGORY to categoriesResult.getOrThrow(),
+                        ExploreType.AREA to areasResult.getOrThrow(),
+                        ExploreType.INGREDIENT to ingredientsResult.getOrThrow()
                     )
                 )
             } else {
@@ -63,7 +63,7 @@ class BrowseRepositoryImpl(
                     areasResult.exceptionOrNull(),
                     ingredientsResult.exceptionOrNull()
                 ).firstOrNull()
-                Result.failure(error ?: Exception("Failed to load browse data"))
+                Result.failure(error ?: Exception("Failed to load explore data"))
             }
         } catch (e: Exception) {
             Result.failure(e)

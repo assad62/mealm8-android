@@ -1,42 +1,42 @@
-package com.mohammadassad.mealm8.features.browse.domain.model
+package com.mohammadassad.mealm8.features.explore.domain.model
 
 /**
- * Unified domain model for all browse items (Categories, Areas, Ingredients)
+ * Unified domain model for all explore items (Categories, Areas, Ingredients)
  */
-data class BrowseItem(
+data class ExploreItem(
     val id: String,
     val name: String,
-    val type: BrowseType,
+    val type: ExploreType,
     val imageUrl: String? = null,
     val description: String? = null
 ) {
     companion object {
-        fun fromCategory(apiModel: com.mohammadassad.mealm8.core.data.api.CategoryItem): BrowseItem {
+        fun fromCategory(apiModel: com.mohammadassad.mealm8.core.data.api.CategoryItem): ExploreItem {
             val categoryName = apiModel.strCategory ?: "Unknown"
-            return BrowseItem(
+            return ExploreItem(
                 id = categoryName.lowercase(),
                 name = categoryName,
-                type = BrowseType.CATEGORY,
+                type = ExploreType.CATEGORY,
                 imageUrl = "https://www.themealdb.com/images/category/${categoryName.lowercase()}.png"
             )
         }
         
-        fun fromArea(apiModel: com.mohammadassad.mealm8.core.data.api.AreaItem): BrowseItem {
+        fun fromArea(apiModel: com.mohammadassad.mealm8.core.data.api.AreaItem): ExploreItem {
             val areaName = apiModel.strArea ?: "Unknown"
-            return BrowseItem(
+            return ExploreItem(
                 id = areaName.lowercase(),
                 name = areaName,
-                type = BrowseType.AREA,
+                type = ExploreType.AREA,
                 imageUrl = getAreaImageUrl(areaName)
             )
         }
         
-        fun fromIngredient(apiModel: com.mohammadassad.mealm8.core.data.api.IngredientItem): BrowseItem {
+        fun fromIngredient(apiModel: com.mohammadassad.mealm8.core.data.api.IngredientItem): ExploreItem {
             val ingredientName = apiModel.strIngredient ?: "Unknown"
-            return BrowseItem(
+            return ExploreItem(
                 id = ingredientName.lowercase(),
                 name = ingredientName,
-                type = BrowseType.INGREDIENT,
+                type = ExploreType.INGREDIENT,
                 imageUrl = getIngredientImageUrl(ingredientName)
             )
         }
@@ -53,9 +53,9 @@ data class BrowseItem(
 }
 
 /**
- * Enum representing the type of browse item
+ * Enum representing the type of explore item
  */
-enum class BrowseType {
+enum class ExploreType {
     CATEGORY,
     AREA,
     INGREDIENT

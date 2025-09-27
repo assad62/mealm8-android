@@ -1,4 +1,4 @@
-package com.mohammadassad.mealm8.features.browse.presentation
+package com.mohammadassad.mealm8.features.explore.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -48,13 +48,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.mohammadassad.mealm8.features.browse.domain.model.BrowseItem
-import com.mohammadassad.mealm8.features.browse.domain.model.BrowseType
+import com.mohammadassad.mealm8.features.explore.domain.model.ExploreItem
+import com.mohammadassad.mealm8.features.explore.domain.model.ExploreType
 import org.koin.compose.koinInject
 
 @Composable
-fun BrowseScreen(
-    viewModel: BrowseViewModel = koinInject()
+fun ExploreScreen(
+    viewModel: ExploreViewModel = koinInject()
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val pagerState = rememberPagerState(pageCount = { 3 })
@@ -82,9 +82,9 @@ fun BrowseScreen(
             onTabSelected = { tab ->
                 viewModel.selectTab(tab)
                 val pageIndex = when (tab) {
-                    BrowseType.CATEGORY -> 0
-                    BrowseType.AREA -> 1
-                    BrowseType.INGREDIENT -> 2
+                    ExploreType.CATEGORY -> 0
+                    ExploreType.AREA -> 1
+                    ExploreType.INGREDIENT -> 2
                 }
                 // Note: We'll handle pager navigation in the UI
             },
@@ -103,7 +103,7 @@ fun BrowseScreen(
                 )
             }
             else -> {
-                BrowseContent(
+                ExploreContent(
                     items = uiState.currentItems,
                     modifier = Modifier.fillMaxSize()
                 )
@@ -114,20 +114,20 @@ fun BrowseScreen(
 
 @Composable
 private fun TabRow(
-    selectedTab: BrowseType,
-    onTabSelected: (BrowseType) -> Unit,
+    selectedTab: ExploreType,
+    onTabSelected: (ExploreType) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        BrowseType.values().forEach { tab ->
+        ExploreType.values().forEach { tab ->
             TabButton(
                 text = when (tab) {
-                    BrowseType.CATEGORY -> "Categories"
-                    BrowseType.AREA -> "Cuisines"
-                    BrowseType.INGREDIENT -> "Ingredients"
+                    ExploreType.CATEGORY -> "Categories"
+                    ExploreType.AREA -> "Cuisines"
+                    ExploreType.INGREDIENT -> "Ingredients"
                 },
                 isSelected = tab == selectedTab,
                 onClick = { onTabSelected(tab) },
@@ -165,8 +165,8 @@ private fun TabButton(
 }
 
 @Composable
-private fun BrowseContent(
-    items: List<BrowseItem>,
+private fun ExploreContent(
+    items: List<ExploreItem>,
     modifier: Modifier = Modifier
 ) {
     LazyVerticalGrid(
@@ -182,14 +182,14 @@ private fun BrowseContent(
         modifier = modifier
     ) {
         items(items) { item ->
-            BrowseItemCard(item = item)
+            ExploreItemCard(item = item)
         }
     }
 }
 
 @Composable
-private fun BrowseItemCard(
-    item: BrowseItem,
+private fun ExploreItemCard(
+    item: ExploreItem,
     modifier: Modifier = Modifier
 ) {
     Card(

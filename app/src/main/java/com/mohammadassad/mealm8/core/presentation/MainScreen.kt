@@ -1,7 +1,9 @@
 package com.mohammadassad.mealm8.core.presentation
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Explore
 import androidx.compose.material.icons.filled.Category
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
@@ -38,8 +40,8 @@ fun MainScreen(
             icon = Icons.Default.Home
         ),
         BottomNavItem(
-            title = "Categories",
-            icon = Icons.Default.Category
+            title = "Explore",
+            icon = Icons.Default.Explore
         ),
         BottomNavItem(
             title = "Search",
@@ -85,12 +87,14 @@ fun MainScreen(
             }
         }
     ) { paddingValues ->
-        when (selectedTabIndex) {
-            0 -> com.mohammadassad.mealm8.features.home.presentation.HomeScreen()
-            1 -> com.mohammadassad.mealm8.features.browse.presentation.BrowseScreen()
-            2 -> com.mohammadassad.mealm8.features.search.presentation.SearchScreen()
-            3 -> com.mohammadassad.mealm8.features.favourites.presentation.FavouritesScreen()
-            else -> com.mohammadassad.mealm8.features.home.presentation.HomeScreen()
+        Box(modifier = Modifier.padding(paddingValues)) {
+            when (selectedTabIndex) {
+                0 -> com.mohammadassad.mealm8.features.home.presentation.HomeScreen()
+                1 -> com.mohammadassad.mealm8.features.explore.presentation.ExploreScreen()
+                2 -> com.mohammadassad.mealm8.features.search.presentation.SearchScreen()
+                3 -> com.mohammadassad.mealm8.features.favourites.presentation.FavouritesScreen()
+                else -> com.mohammadassad.mealm8.features.home.presentation.HomeScreen()
+            }
         }
     }
 }

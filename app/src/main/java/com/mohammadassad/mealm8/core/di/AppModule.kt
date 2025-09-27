@@ -11,10 +11,10 @@ import com.mohammadassad.mealm8.features.categories.data.repository.CategoriesRe
 import com.mohammadassad.mealm8.features.categories.domain.repository.CategoriesRepository
 import com.mohammadassad.mealm8.features.categories.domain.usecase.GetCategoriesUseCase
 import com.mohammadassad.mealm8.features.categories.presentation.CategoriesViewModel
-import com.mohammadassad.mealm8.features.browse.data.repository.BrowseRepositoryImpl
-import com.mohammadassad.mealm8.features.browse.domain.repository.BrowseRepository
-import com.mohammadassad.mealm8.features.browse.domain.usecase.GetAllBrowseDataUseCase
-import com.mohammadassad.mealm8.features.browse.presentation.BrowseViewModel
+import com.mohammadassad.mealm8.features.explore.data.repository.ExploreRepositoryImpl
+import com.mohammadassad.mealm8.features.explore.domain.repository.ExploreRepository
+import com.mohammadassad.mealm8.features.explore.domain.usecase.GetAllExploreDataUseCase
+import com.mohammadassad.mealm8.features.explore.presentation.ExploreViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -50,10 +50,10 @@ val appModule = module {
     single { GetCategoriesUseCase(get()) }
     viewModel { CategoriesViewModel(get()) }
     
-    // Browse Feature
-    single<BrowseRepository> { BrowseRepositoryImpl(get()) }
-    single { GetAllBrowseDataUseCase(get()) }
-    viewModel { BrowseViewModel(get()) }
+    // Explore Feature
+    single<ExploreRepository> { ExploreRepositoryImpl(get()) }
+    single { GetAllExploreDataUseCase(get()) }
+    viewModel { ExploreViewModel(get()) }
     
     // Add other dependencies here as needed
     // Example:
