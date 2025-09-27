@@ -58,8 +58,8 @@ MealM8 is designed to be your go-to app for meal discovery and exploration. Whet
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/assad62/mealm8.git
-   cd mealm8
+   git clone https://github.com/assad62/mealm8-android.git
+   cd mealm8-android
    ```
 
 2. Open the project in Android Studio
@@ -96,7 +96,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Developer**: Mohammad Assad
 - **GitHub**: [@assad62](https://github.com/assad62)
-- **Project Link**: [https://github.com/assad62/mealm8](https://github.com/assad62/mealm8)
+- **Project Link**: [https://github.com/assad62/mealm8-android](https://github.com/assad62/mealm8-android)
 
 ---
 
