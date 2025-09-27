@@ -3,7 +3,6 @@ package com.mohammadassad.mealm8.navigation
 sealed class Destination(val route: String) {
     object Splash : Destination("splash")
     object Main : Destination("main")
-    object Settings : Destination("settings")
     
     // Bottom Navigation Tabs
     object Home : Destination("home")

@@ -5,7 +5,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.mohammadassad.mealm8.ui.screens.MainScreen
-import com.mohammadassad.mealm8.ui.screens.SettingsScreen
 import com.mohammadassad.mealm8.ui.screens.SplashScreen
 
 @Composable
@@ -23,20 +22,7 @@ fun MealM8Navigation(navController: NavHostController) {
         }
         
         composable(Destination.Main.route) {
-            MainScreen(
-                navController = navController,
-                onNavigateToSettings = {
-                    navController.navigateToSettings()
-                }
-            )
-        }
-        
-        composable(Destination.Settings.route) {
-            SettingsScreen(
-                onNavigateBack = {
-                    navController.popBackStack()
-                }
-            )
+            MainScreen(navController = navController)
         }
     }
 }

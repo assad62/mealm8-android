@@ -15,11 +15,6 @@ fun NavController.navigateToMain() {
     }
 }
 
-fun NavController.navigateToSettings() {
-    navigate(Destination.Settings.route) {
-        // No additional options needed
-    }
-}
 
 // Navigation with pop-up behavior
 fun NavController.navigateAndReplace(destination: Destination) {

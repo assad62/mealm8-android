@@ -7,8 +7,6 @@ import com.mohammadassad.mealm8.data.api.BaseApiServiceImpl
 import com.mohammadassad.mealm8.data.api.TheMealDbApiService
 import com.mohammadassad.mealm8.data.local.PreferencesManager
 import com.mohammadassad.mealm8.data.repository.MealRepository
-import com.mohammadassad.mealm8.ui.viewmodel.MealViewModel
-import com.mohammadassad.mealm8.ui.viewmodel.PreferencesViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -39,9 +37,7 @@ val appModule = module {
     // Repositories
     single { MealRepository(get()) }
     
-    // ViewModels
-    viewModel { MealViewModel(get()) }
-    viewModel { PreferencesViewModel(get()) }
+    // ViewModels - None currently needed
     
     // Add other dependencies here as needed
     // Example:

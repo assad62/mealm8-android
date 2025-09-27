@@ -30,8 +30,7 @@ data class BottomNavItem(
 
 @Composable
 fun MainScreen(
-    navController: NavController,
-    onNavigateToSettings: () -> Unit
+    navController: NavController
 ) {
     val bottomNavItems = listOf(
         BottomNavItem(
