@@ -1,47 +1,52 @@
 # MealM8 - Your Personal Meal Companion
 
-A modern Android app built with Jetpack Compose that helps you discover, plan, and enjoy meals. MealM8 connects to TheMealDB API to provide a comprehensive meal planning experience.
+A modern Android app built with Jetpack Compose that helps you discover and explore meals. MealM8 connects to TheMealDB API to provide a comprehensive meal discovery experience.
 
-## 🎯 Project Overview
+## 🎯 About
 
-MealM8 is designed to be your go-to app for meal discovery and planning. Whether you're looking for new recipes, searching for specific ingredients, or organizing your favorite meals, MealM8 provides an intuitive and beautiful interface to enhance your culinary journey.
+MealM8 is designed to be your go-to app for meal discovery and exploration. Whether you're looking for new recipes, searching for specific ingredients, or browsing by cuisine, MealM8 provides an intuitive and beautiful interface to enhance your culinary journey.
 
 ## ✨ Current Features
 
-### 🎨 Design System
-- **Typography**: Plus Jakarta Sans font family with 4 weights (Regular, Medium, Bold, ExtraBold)
-- **Color Palette**: Professional green theme with Material 3 design
-- **Theme Support**: Light and dark mode compatibility
-- **Material 3**: Modern Android design components and animations
+### 🏠 **Home Screen**
+- Clean dashboard with navigation to all features
+- Modern Material 3 design with smooth animations
 
-### 📱 User Interface
-- **Splash Screen**: Animated intro with professional branding
-- **Bottom Navigation**: 4-tab navigation (Home, Categories, Search, Favourites)
-- **Responsive Design**: Optimized for different screen sizes
-- **Smooth Animations**: Material 3 transitions and micro-interactions
+### 🔍 **Explore Screen** 
+- **Browse by Category**: Explore 14 food categories (Beef, Chicken, Dessert, etc.)
+- **Explore Cuisines**: Discover 29 world cuisines (American, Italian, Chinese, etc.)
+- **Browse Ingredients**: Search through 575+ cooking ingredients
+- Tab-based navigation with contextual titles
+- High-quality images for all items
+- Grid layout with beautiful cards
 
-### 🏗️ Architecture
-- **Clean Architecture**: Well-organized code structure
-- **MVVM Pattern**: Separation of concerns with ViewModels
-- **Dependency Injection**: Koin for modular dependency management
-- **Navigation**: Compose Navigation with type-safe routing
+### 🔎 **Search Screen**
+- Placeholder for future search functionality
+- Clean UI ready for implementation
 
-### 🔌 API Integration
-- **TheMealDB V2 API**: Integration with comprehensive meal database
-- **Base API Service**: Extensible architecture for future API additions
-- **Error Handling**: Robust error management and retry mechanisms
-- **Data Models**: Type-safe data structures for meal information
+### ❤️ **Favourites Screen**
+- Placeholder for future favorites functionality
+- Ready for meal saving and management
 
-### 🛠️ Technical Stack
+## 🛠️ Technical Stack
+
 - **Language**: Kotlin
 - **UI Framework**: Jetpack Compose
 - **Architecture**: MVVM + Clean Architecture
 - **Dependency Injection**: Koin
 - **Networking**: Ktor HTTP Client
 - **Serialization**: Kotlinx Serialization
-- **Local Storage**: DataStore Preferences
+- **Image Loading**: Coil
 - **Navigation**: Compose Navigation
+- **API**: TheMealDB API
 
+## 🏗️ Architecture
+
+- **Feature-based folder structure** with Data, Domain, and Presentation layers
+- **Clean Architecture** principles for maintainable code
+- **MVVM pattern** with ViewModels for state management
+- **Repository pattern** for data abstraction
+- **Use cases** for business logic separation
 
 ## 🚀 Getting Started
 
@@ -58,114 +63,24 @@ MealM8 is designed to be your go-to app for meal discovery and planning. Whether
    ```
 
 2. Open the project in Android Studio
-
 3. Sync the project with Gradle files
-
 4. Run the app on an emulator or physical device
 
-### API Configuration
-The app uses TheMealDB V2 API. The API key is configured in `local.properties`:
-```properties
-THEMEALDB_API_KEY=your_api_key_here
-```
+## 📱 Screenshots
 
-## 📋 What's Implemented
+The app features a modern Material 3 design with:
+- Smooth tab navigation
+- Beautiful grid layouts for meal categories, cuisines, and ingredients
+- High-quality images loaded from TheMealDB API
+- Responsive design that works on different screen sizes
 
-### ✅ Completed Features
-- [x] **Project Setup**: Android project with Jetpack Compose
-- [x] **Design System**: Complete typography and color system
-- [x] **Splash Screen**: Animated intro with branding
-- [x] **Bottom Navigation**: 4-tab navigation structure
-- [x] **API Integration**: TheMealDB V2 API service
-- [x] **Clean Architecture**: MVVM pattern with dependency injection
-- [x] **Theme Support**: Light/dark mode compatibility
-- [x] **Navigation**: Type-safe navigation between screens
-- [x] **Code Cleanup**: Removed unused files and dead code
+## 🔮 Upcoming Features
 
-### 🎨 UI/UX Features
-- [x] **Material 3 Design**: Modern Android design language
-- [x] **Custom Typography**: Plus Jakarta Sans font integration
-- [x] **Color System**: Professional green theme palette
-- [x] **Responsive Layout**: Adaptive to different screen sizes
-- [x] **Smooth Animations**: Material 3 transitions
-- [x] **Accessibility**: Proper content descriptions and semantic structure
-
-### 🔧 Technical Features
-- [x] **Dependency Injection**: Koin configuration
-- [x] **API Client**: Ktor HTTP client with error handling
-- [x] **Data Models**: Type-safe meal data structures
-- [x] **Repository Pattern**: Clean data layer abstraction
-- [x] **State Management**: Compose state handling
-- [x] **Build Configuration**: Gradle setup with proper dependencies
-
-## 🚧 What's Left to Implement
-
-### 📱 Core Features
-- [ ] **Home Screen**: Dashboard with featured meals and quick actions
-- [ ] **Categories Screen**: Browse meals by category (Beef, Chicken, Dessert, etc.)
-- [ ] **Search Screen**: Search functionality with filters and suggestions
-- [ ] **Favourites Screen**: Save and manage favorite meals
-- [ ] **Meal Details**: Detailed view with ingredients, instructions, and images
-- [ ] **Meal Planning**: Weekly meal planning and calendar integration
-
-### 🔍 Search & Discovery
-- [ ] **Search by Name**: Find meals by recipe name
-- [ ] **Search by Ingredient**: Find meals containing specific ingredients
-- [ ] **Search by Category**: Filter meals by food category
-- [ ] **Search by Area**: Find meals by cuisine/region
-- [ ] **Advanced Filters**: Multiple filter combinations
-- [ ] **Search History**: Recent searches and suggestions
-
-### 💾 Data Management
-- [ ] **Favorites System**: Add/remove meals from favorites
-- [ ] **Meal History**: Track previously viewed meals
-- [ ] **User Preferences**: Customizable app settings
-- [ ] **Offline Support**: Cache meals for offline viewing
-- [ ] **Data Sync**: Sync favorites across devices
-
-### 🎨 Enhanced UI/UX
-- [ ] **Meal Cards**: Beautiful meal display cards
-- [ ] **Image Loading**: Efficient image loading and caching
-- [ ] **Pull to Refresh**: Refresh content with gestures
-- [ ] **Infinite Scroll**: Pagination for meal lists
-- [ ] **Loading States**: Skeleton screens and progress indicators
-- [ ] **Error States**: User-friendly error messages
-
-### 🔧 Technical Improvements
-- [ ] **Unit Tests**: Comprehensive test coverage
-- [ ] **UI Tests**: Automated UI testing
-- [ ] **Performance Optimization**: Image optimization and lazy loading
-- [ ] **Analytics**: User behavior tracking
-- [ ] **Crash Reporting**: Error monitoring and reporting
-- [ ] **CI/CD**: Automated build and deployment
-- [ ] **Project Structure Documentation**: Add detailed project structure diagram to README
-
-## 🛠️ Development Roadmap
-
-### Phase 1: Core Functionality (Current)
-- [x] Project setup and architecture
-- [x] Design system implementation
-- [x] Basic navigation structure
-- [x] API integration foundation
-
-### Phase 2: Meal Discovery (Next)
-- [ ] Implement Home screen with featured meals
-- [ ] Add Categories screen with meal browsing
-- [ ] Create Search functionality
-- [ ] Build meal detail screens
-
-### Phase 3: User Features
-- [ ] Favorites system
-- [ ] User preferences
-- [ ] Meal history
-- [ ] Enhanced search filters
-
-### Phase 4: Advanced Features
-- [ ] Meal planning calendar
-- [ ] Shopping list generation
-- [ ] Social features (sharing, reviews)
-- [ ] Offline support
-
+- **Search Functionality**: Search meals by name, ingredient, or category
+- **Meal Details**: Detailed view with ingredients, instructions, and images
+- **Favorites System**: Save and manage favorite meals
+- **Meal Planning**: Weekly meal planning and calendar integration
+- **Offline Support**: Cache meals for offline viewing
 
 ## 📄 License
 
@@ -174,7 +89,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - [TheMealDB](https://www.themealdb.com/) for providing the meal database API
-- [Google Fonts](https://fonts.google.com/) for Plus Jakarta Sans typography
 - [Material Design](https://material.io/) for design guidelines
 - [Jetpack Compose](https://developer.android.com/jetpack/compose) for modern Android UI
 
