@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MealM8" parent="Theme.Material3.Dark">
+        <!-- Primary colors for dark mode -->
+        <item name="colorPrimary">@color/primary_400</item>
+        <item name="colorOnPrimary">@color/primary_900</item>
+        
+        <!-- Background colors for dark mode -->
+        <item name="android:colorBackground">@color/bg_primary_dark</item>
+        
+        <!-- Typography -->
+        <item name="android:fontFamily">@font/plus_jakarta_sans</item>
+        
+        <!-- Status bar for dark mode -->
+        <item name="android:statusBarColor">@color/bg_primary_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

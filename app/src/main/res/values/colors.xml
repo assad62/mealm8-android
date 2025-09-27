@@ -1,10 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <!-- Green Primary Palette -->
+    <color name="primary_50">#f0fdf4</color>
+    <color name="primary_100">#dcfce7</color>
+    <color name="primary_200">#bbf7d0</color>
+    <color name="primary_300">#86efac</color>
+    <color name="primary_400">#4ade80</color>
+    <color name="primary_500">#22c55e</color>  <!-- Main brand color -->
+    <color name="primary_600">#16a34a</color>  <!-- Darker interactions -->
+    <color name="primary_700">#15803d</color>
+    <color name="primary_800">#166534</color>
+    <color name="primary_900">#14532d</color>
+    <color name="primary_950">#052e16</color>
+
+    <!-- Gray Neutral Palette -->
+    <color name="secondary_50">#fafafa</color>
+    <color name="secondary_100">#f4f4f5</color>
+    <color name="secondary_200">#e4e4e7</color>
+    <color name="secondary_300">#d4d4d8</color>
+    <color name="secondary_400">#a1a1aa</color>
+    <color name="secondary_500">#71717a</color>
+    <color name="secondary_600">#52525b</color>
+    <color name="secondary_700">#3f3f46</color>
+    <color name="secondary_800">#27272a</color>
+    <color name="secondary_900">#18181b</color>
+    <color name="secondary_950">#09090b</color>
+
+    <!-- Background Colors -->
+    <color name="bg_primary_light">#ffffff</color>
+    <color name="bg_secondary_light">#f9fafb</color>
+    <color name="bg_primary_dark">#111827</color>
+    <color name="bg_secondary_dark">#1f2937</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary_light">#111811</color>
+    <color name="text_secondary_light">#638863</color>
+    <color name="text_primary_dark">#ffffff</color>
+    <color name="text_secondary_dark">#9ca3af</color>
+
+    <!-- Card Colors -->
+    <color name="card_bg_light">#f9f9f9</color>
+    <color name="card_bg_dark">#1e1e1e</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_red">#ef4444</color>
+    <color name="accent_yellow">#eab308</color>
+    <color name="accent_blue">#3b82f6</color>
+
+    <!-- Legacy colors for compatibility -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

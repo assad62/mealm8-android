@@ -2,7 +2,6 @@ package com.mohammadassad.mealm8.ui.screens
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,6 +9,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Restaurant
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,13 +21,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.mohammadassad.mealm8.R
 import kotlinx.coroutines.delay
 
 @Composable
@@ -69,35 +66,44 @@ fun SplashScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            // App icon/logo (using a simple icon for now)
-            Image(
-                painter = painterResource(id = R.drawable.ic_launcher_foreground),
+            // App icon using Material 3 restaurant icon
+            Icon(
+                imageVector = Icons.Default.Restaurant,
                 contentDescription = "MealM8 Logo",
                 modifier = Modifier
                     .size(120.dp)
                     .scale(scale.value)
-                    .alpha(alpha.value)
+                    .alpha(alpha.value),
+                tint = MaterialTheme.colorScheme.onPrimary
             )
             
-            // App name
+            // App name with Plus Jakarta Sans typography
             Text(
                 text = "MealM8",
-                style = MaterialTheme.typography.headlineLarge.copy(
-                    fontSize = 32.sp,
-                    fontWeight = FontWeight.Bold
-                ),
-                color = Color.White,
+                style = MaterialTheme.typography.displayLarge,
+                color = MaterialTheme.colorScheme.onPrimary,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
-                    .padding(top = 16.dp)
+                    .padding(top = 24.dp)
                     .alpha(alpha.value)
             )
             
-            // Tagline
+            // Tagline with proper typography
             Text(
                 text = "Your Personal Meal Companion",
                 style = MaterialTheme.typography.bodyLarge,
-                color = Color.White.copy(alpha = 0.8f),
+                color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f),
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .padding(top = 12.dp)
+                    .alpha(alpha.value)
+            )
+            
+            // Subtitle with accent color
+            Text(
+                text = "Discover • Plan • Enjoy",
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.primaryContainer,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .padding(top = 8.dp)
