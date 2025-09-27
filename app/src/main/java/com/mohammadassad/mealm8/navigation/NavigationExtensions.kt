@@ -9,8 +9,8 @@ fun NavController.navigateToSplash() {
     }
 }
 
-fun NavController.navigateToHome() {
-    navigate(Destination.Home.route) {
+fun NavController.navigateToMain() {
+    navigate(Destination.Main.route) {
         // No additional options needed
     }
 }

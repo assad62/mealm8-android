@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -17,7 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun HomeScreen() {
+fun FavouritesScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -29,21 +29,21 @@ fun HomeScreen() {
             verticalArrangement = Arrangement.Center
         ) {
             Icon(
-                imageVector = Icons.Default.Home,
-                contentDescription = "Home",
+                imageVector = Icons.Default.Favorite,
+                contentDescription = "Favourites",
                 modifier = Modifier.padding(bottom = 16.dp),
                 tint = MaterialTheme.colorScheme.primary
             )
             
             Text(
-                text = "Home",
+                text = "Favourites",
                 style = MaterialTheme.typography.headlineLarge,
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center
             )
             
             Text(
-                text = "Welcome to your meal planning dashboard",
+                text = "Your saved and favorite meals",
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
                 textAlign = TextAlign.Center,

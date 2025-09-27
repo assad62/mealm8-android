@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.mohammadassad.mealm8.ui.screens.HomeScreen
+import com.mohammadassad.mealm8.ui.screens.MainScreen
 import com.mohammadassad.mealm8.ui.screens.SettingsScreen
 import com.mohammadassad.mealm8.ui.screens.SplashScreen
 
@@ -17,13 +17,14 @@ fun MealM8Navigation(navController: NavHostController) {
         composable(Destination.Splash.route) {
             SplashScreen(
                 onSplashFinished = {
-                    navController.navigateAndReplace(Destination.Home)
+                    navController.navigateAndReplace(Destination.Main)
                 }
             )
         }
         
-        composable(Destination.Home.route) {
-            HomeScreen(
+        composable(Destination.Main.route) {
+            MainScreen(
+                navController = navController,
                 onNavigateToSettings = {
                     navController.navigateToSettings()
                 }
