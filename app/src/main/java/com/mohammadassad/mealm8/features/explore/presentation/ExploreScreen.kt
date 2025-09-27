@@ -233,19 +233,24 @@ private fun AreaItemCard(
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Emoji Icon
-            Text(
-                text = ExploreItem.getAreaEmoji(item.name),
-                style = MaterialTheme.typography.headlineLarge,
+            // Emoji Icon - properly sized and centered
+            Box(
                 modifier = Modifier
-                    .size(48.dp)
-                    .padding(end = 16.dp)
-            )
+                    .size(40.dp)
+                    .padding(end = 16.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = ExploreItem.getAreaEmoji(item.name),
+                    style = MaterialTheme.typography.headlineMedium,
+                    textAlign = TextAlign.Center
+                )
+            }
             
             // Area Name
             Text(
                 text = item.name,
-                style = MaterialTheme.typography.titleLarge,
+                style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Medium,
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.weight(1f)
