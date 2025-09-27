@@ -42,21 +42,6 @@ MealM8 is designed to be your go-to app for meal discovery and planning. Whether
 - **Local Storage**: DataStore Preferences
 - **Navigation**: Compose Navigation
 
-## 📁 Project Structure
-
-```
-app/src/main/java/com/mohammadassad/mealm8/
-├── data/
-│   ├── api/                    # API services and HTTP client
-│   ├── local/                  # Local data storage (DataStore)
-│   └── repository/             # Data repository layer
-├── di/                        # Dependency injection modules
-├── navigation/                 # Navigation components
-├── ui/
-│   ├── screens/               # UI screens (Compose)
-│   └── theme/                 # Design system (colors, typography)
-└── MainActivity.kt            # App entry point
-```
 
 ## 🚀 Getting Started
 
@@ -153,6 +138,7 @@ THEMEALDB_API_KEY=your_api_key_here
 - [ ] **Analytics**: User behavior tracking
 - [ ] **Crash Reporting**: Error monitoring and reporting
 - [ ] **CI/CD**: Automated build and deployment
+- [ ] **Project Structure Documentation**: Add detailed project structure diagram to README
 
 ## 🛠️ Development Roadmap
 
