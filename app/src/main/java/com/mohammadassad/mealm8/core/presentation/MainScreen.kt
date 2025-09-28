@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 import com.mohammadassad.mealm8.core.navigation.navigateToCategoryDetail
+import com.mohammadassad.mealm8.core.navigation.navigateToRecipeDetail
 
 data class BottomNavItem(
     val title: String,
@@ -97,7 +98,14 @@ fun MainScreen(
                         navController.navigateToCategoryDetail(type, name, selectedTabIndex)
                     }
                 )
-                2 -> com.mohammadassad.mealm8.features.search.presentation.SearchScreen()
+                2 -> com.mohammadassad.mealm8.features.search.presentation.SearchScreen(
+                    onMealClick = { mealId ->
+                        navController.navigateToRecipeDetail(mealId)
+                    },
+                    onCategoryClick = { type, name ->
+                        navController.navigateToCategoryDetail(type, name, selectedTabIndex)
+                    }
+                )
                 3 -> com.mohammadassad.mealm8.features.favourites.presentation.FavouritesScreen()
                 else -> com.mohammadassad.mealm8.features.home.presentation.HomeScreen()
             }

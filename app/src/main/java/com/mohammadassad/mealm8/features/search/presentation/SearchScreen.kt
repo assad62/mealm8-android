@@ -55,6 +55,8 @@ import org.koin.compose.koinInject
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchScreen(
+    onMealClick: (String) -> Unit = { _ -> }, // mealId
+    onCategoryClick: (String, String) -> Unit = { _, _ -> }, // type, name
     viewModel: SearchViewModel = koinInject()
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -119,7 +121,9 @@ fun SearchScreen(
             uiState.results.isNotEmpty() -> {
                 SearchResults(
                     results = uiState.results,
-                    selectedType = uiState.selectedType
+                    selectedType = uiState.selectedType,
+                    onMealClick = onMealClick,
+                    onCategoryClick = onCategoryClick
                 )
             }
             else -> {
@@ -182,7 +186,9 @@ private fun SearchTypePill(
 @Composable
 private fun SearchResults(
     results: List<SearchResult>,
-    selectedType: SearchType
+    selectedType: SearchType,
+    onMealClick: (String) -> Unit,
+    onCategoryClick: (String, String) -> Unit
 ) {
     // Grid layout for all result types (meals, cuisines, ingredients)
     LazyVerticalGrid(
@@ -191,7 +197,11 @@ private fun SearchResults(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(results) { result ->
-            SearchResultCard(result = result)
+            SearchResultCard(
+                result = result,
+                onMealClick = onMealClick,
+                onCategoryClick = onCategoryClick
+            )
         }
     }
 }
@@ -199,13 +209,18 @@ private fun SearchResults(
 @Composable
 private fun SearchResultCard(
     result: SearchResult,
+    onMealClick: (String) -> Unit,
+    onCategoryClick: (String, String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .clickable { 
-                // TODO: Navigate to result details
+                when (result.type) {
+                    SearchType.MEALS -> onMealClick(result.id)
+                    SearchType.INGREDIENTS -> onCategoryClick("ingredient", result.name)
+                }
             },
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
