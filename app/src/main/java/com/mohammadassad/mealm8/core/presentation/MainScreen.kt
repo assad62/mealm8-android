@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
+import com.mohammadassad.mealm8.core.navigation.navigateToCategoryDetail
 
 data class BottomNavItem(
     val title: String,
@@ -32,7 +33,8 @@ data class BottomNavItem(
 
 @Composable
 fun MainScreen(
-    navController: NavController
+    navController: NavController,
+    initialTabIndex: Int = 0
 ) {
     val bottomNavItems = listOf(
         BottomNavItem(
@@ -53,7 +55,7 @@ fun MainScreen(
         )
     )
 
-    var selectedTabIndex by remember { mutableIntStateOf(0) }
+    var selectedTabIndex by remember { mutableIntStateOf(initialTabIndex) }
 
     Scaffold(
         bottomBar = {
@@ -90,7 +92,11 @@ fun MainScreen(
         Box(modifier = Modifier.padding(paddingValues)) {
             when (selectedTabIndex) {
                 0 -> com.mohammadassad.mealm8.features.home.presentation.HomeScreen()
-                1 -> com.mohammadassad.mealm8.features.explore.presentation.ExploreScreen()
+                1 -> com.mohammadassad.mealm8.features.explore.presentation.ExploreScreen(
+                    onItemClick = { type, name ->
+                        navController.navigateToCategoryDetail(type, name, selectedTabIndex)
+                    }
+                )
                 2 -> com.mohammadassad.mealm8.features.search.presentation.SearchScreen()
                 3 -> com.mohammadassad.mealm8.features.favourites.presentation.FavouritesScreen()
                 else -> com.mohammadassad.mealm8.features.home.presentation.HomeScreen()

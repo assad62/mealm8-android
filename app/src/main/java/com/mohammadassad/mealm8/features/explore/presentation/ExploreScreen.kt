@@ -56,6 +56,7 @@ import org.koin.compose.koinInject
 
 @Composable
 fun ExploreScreen(
+    onItemClick: (String, String) -> Unit = { _, _ -> }, // type, name
     viewModel: ExploreViewModel = koinInject()
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -108,6 +109,7 @@ fun ExploreScreen(
                 ExploreContent(
                     items = uiState.currentItems,
                     selectedTab = uiState.selectedTab,
+                    onItemClick = onItemClick,
                     modifier = Modifier.fillMaxSize()
                 )
             }
@@ -171,6 +173,7 @@ private fun TabButton(
 private fun ExploreContent(
     items: List<ExploreItem>,
     selectedTab: ExploreType,
+    onItemClick: (String, String) -> Unit,
     modifier: Modifier = Modifier
 ) {
     when (selectedTab) {
@@ -187,7 +190,10 @@ private fun ExploreContent(
                 modifier = modifier
             ) {
                 items(items) { item ->
-                    AreaItemCard(item = item)
+                    AreaItemCard(
+                        item = item,
+                        onClick = { onItemClick(item.type.name.lowercase(), item.name) }
+                    )
                 }
             }
         }
@@ -206,7 +212,10 @@ private fun ExploreContent(
                 modifier = modifier
             ) {
                 items(items) { item ->
-                    ExploreItemCard(item = item)
+                    ExploreItemCard(
+                        item = item,
+                        onClick = { onItemClick(item.type.name.lowercase(), item.name) }
+                    )
                 }
             }
         }
@@ -216,14 +225,13 @@ private fun ExploreContent(
 @Composable
 private fun AreaItemCard(
     item: ExploreItem,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .clickable { 
-                // TODO: Navigate to item details
-            },
+            .clickable { onClick() },
         shape = RoundedCornerShape(12.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
@@ -262,15 +270,14 @@ private fun AreaItemCard(
 @Composable
 private fun ExploreItemCard(
     item: ExploreItem,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .aspectRatio(1f)
-            .clickable { 
-                // TODO: Navigate to item details
-            },
+            .clickable { onClick() },
         shape = RoundedCornerShape(16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {

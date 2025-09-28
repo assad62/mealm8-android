@@ -19,6 +19,8 @@ import com.mohammadassad.mealm8.features.search.data.repository.SearchRepository
 import com.mohammadassad.mealm8.features.search.domain.repository.SearchRepository
 import com.mohammadassad.mealm8.features.search.domain.usecase.SearchUseCase
 import com.mohammadassad.mealm8.features.search.presentation.SearchViewModel
+import com.mohammadassad.mealm8.features.recipes.presentation.CategoryDetailViewModel
+import com.mohammadassad.mealm8.features.recipes.presentation.RecipeDetailViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -63,6 +65,10 @@ val appModule = module {
     single<SearchRepository> { SearchRepositoryImpl(get()) }
     single { SearchUseCase(get()) }
     viewModel { SearchViewModel(get()) }
+    
+    // Recipe Detail Feature
+    viewModel { CategoryDetailViewModel(get()) }
+    viewModel { RecipeDetailViewModel(get()) }
     
     // Add other dependencies here as needed
     // Example:

@@ -9,8 +9,8 @@ fun NavController.navigateToSplash() {
     }
 }
 
-fun NavController.navigateToMain() {
-    navigate(Destination.Main.route) {
+fun NavController.navigateToMain(tabIndex: Int = 0) {
+    navigate(Destination.Main.createRoute(tabIndex)) {
         // No additional options needed
     }
 }
@@ -43,5 +43,30 @@ fun NavController.navigateWithOptions(
         popUpToRoute?.let { route ->
             popUpTo(route) { this.inclusive = inclusive }
         }
+    }
+}
+
+// Detail Screen Navigation
+fun NavController.navigateToCategoryDetail(type: String, name: String, fromTab: Int) {
+    navigate(Destination.CategoryDetail.createRoute(type, name, fromTab))
+}
+
+fun NavController.navigateToRecipeDetail(mealId: String) {
+    navigate(Destination.RecipeDetail.createRoute(mealId))
+}
+
+// Back Navigation
+fun NavController.navigateBack() {
+    if (!popBackStack()) {
+        // If we can't pop back, navigate to main
+        navigateToMain()
+    }
+}
+
+// Back Navigation with tab preservation
+fun NavController.navigateBackToTab(tabIndex: Int) {
+    if (!popBackStack()) {
+        // If we can't pop back, navigate to main with specific tab
+        navigateToMain(tabIndex)
     }
 }
